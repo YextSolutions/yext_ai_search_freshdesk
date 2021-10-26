@@ -3,10 +3,6 @@
   "product": {
     "freshdesk": {
       "location": {
-        "ticket_sidebar": {
-          "url": "index.html",
-          "icon": "styles/images/Yext_Seal_Black.svg"
-        },
         "ticket_conversation_editor": {
           "url": "index.html",
           "icon": "styles/images/Yext_Seal_Black.svg"
