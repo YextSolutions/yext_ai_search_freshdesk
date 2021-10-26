@@ -5,19 +5,19 @@
       "location": {
         "ticket_sidebar": {
           "url": "index.html",
-          "icon": "styles/images/icon.svg"
+          "icon": "styles/images/Yext_Seal_Black.svg"
         },
         "ticket_conversation_editor": {
           "url": "index.html",
-          "icon": "styles/images/icon.svg"
+          "icon": "styles/images/Yext_Seal_Black.svg"
         },
         "full_page_app": {
           "url": "index.html",
-          "icon": "styles/images/icon.svg"
+          "icon": "styles/images/Yext_Seal_White.svg"
         },
         "cti_global_sidebar": {
           "url": "index.html",
-          "icon": "styles/images/icon.svg"
+          "icon": "styles/images/Yext_Seal_White.svg"
         }
       }
     }
