@@ -31,6 +31,9 @@ function populateAnswersExperience() {
 
 function configureParams(params) {
   (function(d, script, answers) {
+    if (d.getElementById("answers-container")) {
+      return;
+    }
     answers = d.createElement("div");
     answers.id = "answers-container";
 
