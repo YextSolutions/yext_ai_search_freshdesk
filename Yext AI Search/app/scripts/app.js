@@ -30,14 +30,13 @@ function populateAnswersExperience() {
 }
 
 function configureParams(params) {
-  (function(d, script, answers) {
-    if (d.getElementById("answers-container")) {
+    if (document.getElementById("answers-container")) {
       return;
     }
-    answers = d.createElement("div");
+    let answers = document.createElement("div");
     answers.id = "answers-container";
 
-    script = d.createElement("script");
+    let script = document.createElement("script");
     script.async = true;
 
     let url = params["answersUrl"];
@@ -51,10 +50,6 @@ function configureParams(params) {
 
     let autoFillSearchBar = params["autoFillSearchBar"];
 
-    if (autoFillSearchBar) {
-      client.events.on("ticket.propertiesUpdated", eventCallback);
-    }
-
     script.onload = function() {
       AnswersExperienceFrame.runtimeConfig.set('linkTarget', '_blank');
       client.data.get("ticket").then(function(data) {
@@ -64,23 +59,10 @@ function configureParams(params) {
       });
     };
 
-    d.getElementById("content").append(answers);
-    d.getElementById("content").append(script);
-  }(document));
+    let content = document.getElementById("content");
+    content.append(answers);
+    content.append(script);
 }
-
-var eventCallback = function(event) {
-  if (event.data.changedAttributes["subject"]) {
-    let newQuery = event.data.changedAttributes["subject"][1];
-    let msg = JSON.stringify({
-      "action": "setQuery",
-      "value": newQuery
-    });
-    let frameEl = document.getElementById("answers-frame");
-    frameEl.contentWindow.postMessage(msg, "*");
-  }
-  event.helper.done();
-};
 
 function handleErr(err) {
   console.error(`Error occured. Details:`, err);
