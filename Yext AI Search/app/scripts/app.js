@@ -56,7 +56,7 @@ function configureParams(params) {
         if (data.ticket["subject"] && autoFillSearchBar) {
           document.getElementById("answers-container").firstElementChild.src += "&query=" + data.ticket["subject"];
         }
-      });
+      }).catch(handleErr);
     };
 
     let content = document.getElementById("content");
@@ -64,6 +64,9 @@ function configureParams(params) {
     content.append(script);
 }
 
-function handleErr(err) {
-  console.error(`Error occured. Details:`, err);
+function handleErr() {
+  client.interface.trigger("showNotify", {
+      type: "warning", 
+      message: "Please check your Yext AI Serch configuration and refresh the page"
+    }).catch(handleErr);
 }
