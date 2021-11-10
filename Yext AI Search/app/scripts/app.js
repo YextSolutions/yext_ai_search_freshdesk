@@ -64,9 +64,13 @@ function configureParams(params) {
     content.append(script);
 }
 
-function handleErr() {
+function handleErr(err) {
+  if (err.message.includes("Invalid attribute")) {
+    // This is an "expected" error for the side bar Answers experience
+    return;
+  }
   client.interface.trigger("showNotify", {
       type: "warning", 
-      message: "Please check your Yext AI Serch configuration and refresh the page"
-    }).catch(handleErr);
+      message: "Please check your Yext AI Search configuration and refresh the page"
+    }).catch(console.error(err));
 }
