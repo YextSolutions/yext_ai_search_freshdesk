@@ -13,7 +13,7 @@
     },
     "autoFillSearchBar": {
       "display_name": "Auto Populate Search Bar from Subject?",
-      "description": "Check this option if the ticket subject should populate Yext AI Search",
+      "description": "Check this option if the ticket subject should populate Yext Search",
       "type": "checkbox",
       "secure": false,
       "required": false,

@@ -53,6 +53,7 @@ function configureParams(params) {
     script.onload = function() {
       AnswersExperienceFrame.runtimeConfig.set('linkTarget', '_blank');
       AnswersExperienceFrame.runtimeConfig.set('querySource', 'AGENT_DESKTOP');
+      AnswersExperienceFrame.init({});
       client.data.get("ticket").then(function(data) {
         if (data.ticket["subject"] && autoFillSearchBar) {
           document.getElementById("answers-container").firstElementChild.src += "&query=" + data.ticket["subject"];
@@ -72,6 +73,6 @@ function handleErr(err) {
   }
   client.interface.trigger("showNotify", {
       type: "warning", 
-      message: "Please check your Yext AI Search configuration and refresh the page"
+      message: "Please check your Yext Search configuration and refresh the page"
     }).catch(console.error(err));
 }
